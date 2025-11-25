@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace Dispatcher_example
 {
@@ -19,6 +20,30 @@ namespace Dispatcher_example
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void StartNotepad_Click(object sender, RoutedEventArgs e)
+        {
+            Process process = Process.Start("notepad.exe");
+            if (process != null)
+            {
+                try
+                {
+                    process.CloseMainWindow();
+                    process.WaitForExit(3000);
+                    if (!process.HasExited)
+                        process.Kill();
+                }
+                catch (Exception ex)
+                {
+                    stateTextBlock.Text = $"Ошибка при закрытии блокнота: {ex.Message}";
+                }
+            }
+        }
+
+        private void ReloadTextBlock_Click(object sender, RoutedEventArgs e)
+        {
+            Thread backgroundThread = new Thread
         }
     }
 }

@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="startNotepad_button"
-                Click="StartNotepad"
+                Click="StartNotepad_Click"
                 Content="Запустить Notepad"
                 FontSize="20"
                 Grid.Column="0"
@@ -27,7 +27,7 @@
                 Margin="50"/>
 
         <Button x:Name="reloadTextBlock_button"
-                Click="ReloadTextBlock"
+                Click="ReloadTextBlock_Click"
                 Content="Обновить текстовое поле"
                 FontSize="20"
                 Grid.Column="1"
