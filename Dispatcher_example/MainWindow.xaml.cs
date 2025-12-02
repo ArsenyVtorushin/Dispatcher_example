@@ -43,7 +43,25 @@ namespace Dispatcher_example
 
         private void ReloadTextBlock_Click(object sender, RoutedEventArgs e)
         {
-            Thread backgroundThread = new Thread
+            var notepadProcess = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "C:\\Windows\\System32\\notepad.exe",
+                    UseShellExecute = false
+                }
+            };
+
+            try
+            {
+                notepadProcess.Start();
+                bool exited = notepadProcess.WaitForExit(3000);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
