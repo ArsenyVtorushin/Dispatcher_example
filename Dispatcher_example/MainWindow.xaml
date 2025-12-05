@@ -5,39 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dispatcher_example"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1000">
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
         <Button x:Name="startNotepad_button"
                 Click="StartNotepad_Click"
                 Content="Запустить Notepad"
-                FontSize="20"
+                FontSize="14"
                 Grid.Column="0"
                 Grid.Row="0"
                 Margin="50"/>
 
-        <Button x:Name="reloadTextBlock_button"
-                Click="ReloadTextBlock_Click"
-                Content="Обновить текстовое поле"
-                FontSize="20"
+        <TextBlock x:Name="notepadState"
+                   FontSize="14"
+                   Grid.Column="0"
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        <Button x:Name="startCmd_button"
+                Click="StartCmd_Click"
+                Content="Запустить cmd"
                 Grid.Column="1"
-                Grid.Row="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="14"
                 Margin="50"/>
 
-        <TextBlock x:Name="stateTextBlock"
-                   Text="{Binding }"
-                   FontSize="20"
-                   Grid.ColumnSpan="2"
+        <TextBlock x:Name="dir_textBlock"
+                   FontSize="14"
+                   Grid.Column="1"
                    Grid.Row="1"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
